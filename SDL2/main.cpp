@@ -53,9 +53,16 @@ std::string GetCurrentDirectory() {
 std::string GetWorkingDirectory() {
     
     std::filesystem::path cwd = std::filesystem::current_path();
-    // std::filesystem::path cwd = std::filesystem::temp_directory_path();
     
     return cwd.string();
+}
+
+void EnumDirectories() {
+    std::filesystem::create_directory(GetWorkingDirectory());
+    
+    for(auto& p : std::filesystem::directory_iterator(GetWorkingDirectory())) {
+        std::cout << p.path() << std::endl;
+    }
 }
 
 std::string GetBaseDirectory() {
@@ -68,6 +75,7 @@ int main(int argc, const char * argv[]) {
     
     std::cout << GetCurrentDirectory() << std::endl;
     std::cout << GetWorkingDirectory() << std::endl;
+    EnumDirectories();
     
     if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
     {
