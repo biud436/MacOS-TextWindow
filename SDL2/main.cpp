@@ -69,7 +69,29 @@ std::string GetBaseDirectory() {
     return SDL_GetBasePath();
 }
 
+void GetTextAndRect(SDL_Renderer* renderer, int x, int y, char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
+    int textWidth;
+    int textHeight;
+    
+    SDL_Surface *surface;
+    SDL_Color textColor = {0, 0, 0, 0};
+    
+    surface = TTF_RenderText_Solid(font, text, textColor);
+    *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    
+    textWidth = surface->w;
+    textHeight = surface->h;
+    SDL_FreeSurface(surface);
+    rect->x = x;
+    rect->y = y;
+    rect->w = textWidth;
+    rect->h = textHeight;
+}
+
 int main(int argc, const char * argv[]) {
+    
+    SDL_Texture *texture;
+    SDL_Rect rect;
     
     Lua_Init();
     
@@ -93,9 +115,11 @@ int main(int argc, const char * argv[]) {
         return 1;
     }
         
-    g_pFont = TTF_OpenFont("../assets/NanumGothic.ttf", 22);
+    g_pFont = TTF_OpenFont("/Library/Fonts/NanumGothic.ttf", 22);
     
     bool isRunning = true;
+    
+    GetTextAndRect(g_pRenderer, 0, 0, "Hi, there", g_pFont, &texture, &rect);
     
     while(isRunning) {
         SDL_Event event;
@@ -112,9 +136,13 @@ int main(int argc, const char * argv[]) {
         
         SDL_SetRenderDrawColor(g_pRenderer, 255, 255, 255, 255);
         SDL_RenderClear(g_pRenderer);
+        
+        SDL_RenderCopy(g_pRenderer, texture, NULL, &rect);
+        
         SDL_RenderPresent(g_pRenderer);
     }
     
+    SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(g_pRenderer);
     SDL_DestroyWindow(g_pWindow);
     
