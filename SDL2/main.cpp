@@ -12,6 +12,7 @@
 #include <SDL_ttf.h>
 #include <unistd.h>
 #include <limits.h>
+#include <wchar.h>
 #include <filesystem>
 
 extern "C" {
@@ -69,14 +70,14 @@ std::string GetBaseDirectory() {
     return SDL_GetBasePath();
 }
 
-void GetTextAndRect(SDL_Renderer* renderer, int x, int y, char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
+void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
     int textWidth;
     int textHeight;
     
     SDL_Surface *surface;
     SDL_Color textColor = {0, 0, 0, 0};
     
-    surface = TTF_RenderText_Solid(font, text, textColor);
+    surface = TTF_RenderUTF8_Solid(font, text, textColor);
     *texture = SDL_CreateTextureFromSurface(renderer, surface);
     
     textWidth = surface->w;
@@ -119,7 +120,7 @@ int main(int argc, const char * argv[]) {
     
     bool isRunning = true;
     
-    GetTextAndRect(g_pRenderer, 0, 0, "Hi, there", g_pFont, &texture, &rect);
+    GetTextAndRect(g_pRenderer, 0, 0, "안녕하세요", g_pFont, &texture, &rect);
     
     while(isRunning) {
         SDL_Event event;
