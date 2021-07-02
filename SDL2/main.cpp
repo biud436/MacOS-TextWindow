@@ -77,7 +77,7 @@ void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_
     SDL_Surface *surface;
     SDL_Color textColor = {0, 0, 0, 0};
     
-    surface = TTF_RenderUTF8_Solid(font, text, textColor);
+    surface = TTF_RenderUTF8_Blended(font, text, textColor);
     *texture = SDL_CreateTextureFromSurface(renderer, surface);
     
     textWidth = surface->w;
@@ -117,6 +117,7 @@ int main(int argc, const char * argv[]) {
     }
         
     g_pFont = TTF_OpenFont("/Library/Fonts/NanumGothic.ttf", 22);
+     //g_pFont = TTF_OpenFont("./assets/NanumGothic.ttf", 22);
     
     bool isRunning = true;
     
