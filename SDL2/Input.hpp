@@ -114,6 +114,7 @@ private:
     void onMouseButtonUp(SDL_Event& event);
     void onUpdateMousePositon(SDL_Event& event);
     void onKeyboardUpdate();
+    void onMouseWheel(SDL_Event& event);
 
     std::vector<bool> _mouseStates;
     Uint8* _keyCurrentStates;

@@ -191,7 +191,18 @@ int Input::getMouseZ() const
 */
 void Input::setMouseZ(int value)
 {
-    
+    if(value < 0) {
+        value = -1;
+    }
+    if(value > 0) {
+        value = 1;
+    }
+    _mouseWheel = value;
+}
+
+void Input::onMouseWheel(SDL_Event& event)
+{
+    setMouseZ(event.wheel.y);
 }
 
 void Input::update()
@@ -212,6 +223,9 @@ void Input::update()
                 break;
             case SDL_MOUSEBUTTONUP:
                 onMouseButtonUp(event);
+                break;
+            case SDL_MOUSEWHEEL:
+                onMouseWheel(event);
                 break;
             case SDL_MOUSEMOTION:
                 onUpdateMousePositon(event);

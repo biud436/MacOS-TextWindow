@@ -45,7 +45,7 @@ void App::Start()
 
 void App::Quit()
 {
-    Renderer::GetInstance()._isRunning = false;
+    Renderer::GetInstance().requestDestroy();
 }
 
 /**

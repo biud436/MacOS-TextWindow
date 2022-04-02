@@ -29,7 +29,8 @@ public:
     
     void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect);
     
-    bool _isRunning = true;
+    void requestDestroy();
+
 protected:
     SDL_Window* _pWindow;
     SDL_Renderer* _pRenderer;
@@ -40,6 +41,7 @@ private:
     SDL_Rect* _pRect;
     MyPoint _myPoint;
     int _acc;
+    bool _isRunning;
 private:
     Renderer();
     virtual ~Renderer();

@@ -141,3 +141,8 @@ void Renderer::GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* 
     rect->w = textWidth;
     rect->h = textHeight;
 }
+
+void Renderer::requestDestroy()
+{
+    _isRunning = false;
+}
