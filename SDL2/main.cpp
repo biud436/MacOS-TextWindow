@@ -13,7 +13,8 @@
 #include <unistd.h>
 #include <limits.h>
 #include <wchar.h>
-#include <filesystem>
+
+#include "App.hpp"
 
 extern "C" {
     #include <lua.h>
@@ -38,36 +39,6 @@ int Lua_Init()
     lua_close(l);
 
     return 0;
-}
-
-/**
- *  현재 경로를 반환합니다.
- */
-std::string GetCurrentDirectory() {
-    std::string sBuffer;
-    sBuffer.resize(PATH_MAX);
-    getcwd(&sBuffer[0], sBuffer.size());
-    
-    return sBuffer;
-}
-
-std::string GetWorkingDirectory() {
-    
-    std::filesystem::path cwd = std::filesystem::current_path();
-    
-    return cwd.string();
-}
-
-void EnumDirectories() {
-    std::filesystem::create_directory(GetWorkingDirectory());
-    
-    for(auto& p : std::filesystem::directory_iterator(GetWorkingDirectory())) {
-        std::cout << p.path() << std::endl;
-    }
-}
-
-std::string GetBaseDirectory() {
-    return SDL_GetBasePath();
 }
 
 void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
@@ -96,9 +67,11 @@ int main(int argc, const char * argv[]) {
     
     Lua_Init();
     
-    std::cout << GetCurrentDirectory() << std::endl;
-    std::cout << GetWorkingDirectory() << std::endl;
-    EnumDirectories();
+    App& app = App::GetInstance();
+    
+    std::cout << app.GetCurrentDirectory() << std::endl;
+    std::cout << app.GetWorkingDirectory() << std::endl;
+    app.EnumDirectories();
     
     if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
     {
