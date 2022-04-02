@@ -13,6 +13,7 @@
 #include <wchar.h>
 #include <unistd.h>
 #include <limits.h>
+#include "Input.hpp"
 
 SDL_Color textColor = {255, 255, 255};
 
@@ -75,21 +76,23 @@ bool Renderer::Prepare()
 
 void Renderer::RenderLoop()
 {
+    Input& input = Input::GetInstance();
+    
     while(_isRunning) {
-        SDL_Event event;
         
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_KEYDOWN) {
-                if( event.key.keysym.sym == SDLK_ESCAPE) {
-                    _isRunning = false;
-                }
-            } else if(event.type == SDL_QUIT) {
-                _isRunning = false;
-            }
+        input.update();
+        
+        // ESC를 눌렀을 때
+        if(input.isKeyDown(SDL_SCANCODE_ESCAPE))
+        {
+            _isRunning = false;
         }
         
         SDL_SetRenderDrawColor(_pRenderer, 255, 255, 255, 255);
         SDL_RenderClear(_pRenderer);
+        
+        _myPoint.x = input.getMouseX();
+        _myPoint.y = input.getMouseY();
         
         // Get the width of text rect.
         GetTextAndRect(_pRenderer, _myPoint.x, _myPoint.y, _myPoint.text, _pFont, &_pTexture, _pRect);

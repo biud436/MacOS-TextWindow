@@ -17,6 +17,7 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include "Renderer.hpp"
 
 App* App::s_pInstance = 0;
 
@@ -44,7 +45,7 @@ void App::Start()
 
 void App::Quit()
 {
-    
+    Renderer::GetInstance()._isRunning = false;
 }
 
 /**

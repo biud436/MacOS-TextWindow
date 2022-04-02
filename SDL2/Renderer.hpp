@@ -28,6 +28,8 @@ public:
     void Destroy();
     
     void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect);
+    
+    bool _isRunning = true;
 protected:
     SDL_Window* _pWindow;
     SDL_Renderer* _pRenderer;
@@ -36,7 +38,6 @@ protected:
 private:
     SDL_Texture* _pTexture;
     SDL_Rect* _pRect;
-    bool _isRunning;
     MyPoint _myPoint;
     int _acc;
 private:
