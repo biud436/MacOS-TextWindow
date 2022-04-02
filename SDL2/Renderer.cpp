@@ -88,6 +88,7 @@ void Renderer::RenderLoop()
             _isRunning = false;
         }
         
+        // Clear screen
         SDL_SetRenderDrawColor(_pRenderer, 255, 255, 255, 255);
         SDL_RenderClear(_pRenderer);
         
@@ -105,8 +106,11 @@ void Renderer::RenderLoop()
         _myPoint.x += _acc;
         
         GetTextAndRect(_pRenderer, _myPoint.x, _myPoint.y, _myPoint.text, _pFont, &_pTexture, _pRect);
+        
+        // Draw default screen render texture.
         SDL_RenderCopy(_pRenderer, _pTexture, 0, _pRect);
         
+        // Update screen
         SDL_RenderPresent(_pRenderer);
     }
 }
