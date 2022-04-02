@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1439110527F7DA79008BE3BB /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439110327F7DA79008BE3BB /* App.cpp */; };
+		1439110827F7DE0E008BE3BB /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439110627F7DE0E008BE3BB /* Renderer.cpp */; };
 		14AF648526880BC40039D98B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AF648426880BC40039D98B /* main.cpp */; };
 		14B7DBA4268F596D0016FA47 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14B7DBA3268F596D0016FA47 /* assets */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,8 @@
 		142B399226887CF9006C4BEA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		1439110327F7DA79008BE3BB /* App.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		1439110427F7DA79008BE3BB /* App.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = App.hpp; sourceTree = "<group>"; };
+		1439110627F7DE0E008BE3BB /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		1439110727F7DE0E008BE3BB /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		14AF648126880BC40039D98B /* SDL2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL2; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AF648426880BC40039D98B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		14B7DBA3268F596D0016FA47 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				14AF648426880BC40039D98B /* main.cpp */,
 				1439110327F7DA79008BE3BB /* App.cpp */,
 				1439110427F7DA79008BE3BB /* App.hpp */,
+				1439110627F7DE0E008BE3BB /* Renderer.cpp */,
+				1439110727F7DE0E008BE3BB /* Renderer.hpp */,
 			);
 			path = SDL2;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1439110827F7DE0E008BE3BB /* Renderer.cpp in Sources */,
 				14AF648526880BC40039D98B /* main.cpp in Sources */,
 				1439110527F7DA79008BE3BB /* App.cpp in Sources */,
 			);
