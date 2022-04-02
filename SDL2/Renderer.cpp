@@ -27,12 +27,12 @@ Renderer& Renderer::GetInstance()
 }
 
 Renderer::Renderer():
-    _pWindow(0),
-    _pRenderer(0),
-    _pSurface(0),
-    _pFont(0),
-    _pTexture(0),
-    _pRect(new SDL_Rect()),
+    _window(0),
+    _renderer(0),
+    _surface(0),
+    _font(0),
+    _texture(0),
+    _rect(new SDL_Rect()),
     _isRunning(false),
     _acc(1)
 {
@@ -44,17 +44,17 @@ Renderer::Renderer():
 
 Renderer::~Renderer()
 {
-    delete _pRect;
+    delete _rect;
 }
 
 bool Renderer::Prepare()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) >= 0)
     {
-        _pWindow = SDL_CreateWindow("TEST", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+        _window = SDL_CreateWindow("TEST", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
         
-        if(_pWindow != 0) {
-            _pRenderer = SDL_CreateRenderer(_pWindow, -1, 0);
+        if(_window != 0) {
+            _renderer = SDL_CreateRenderer(_window, -1, 0);
         }
     } else {
         return false;
@@ -65,11 +65,11 @@ bool Renderer::Prepare()
         return false;
     }
         
-    _pFont = TTF_OpenFont("/Library/Fonts/NanumGothic.ttf", 22);
+    _font = TTF_OpenFont("/Library/Fonts/NanumGothic.ttf", 22);
     
     _isRunning = true;
     
-    GetTextAndRect(_pRenderer, _myPoint.x, _myPoint.y, _myPoint.text, _pFont, &_pTexture, _pRect);
+    GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
     
     return _isRunning;
 }
@@ -89,39 +89,39 @@ void Renderer::RenderLoop()
         }
         
         // Clear screen
-        SDL_SetRenderDrawColor(_pRenderer, 255, 255, 255, 255);
-        SDL_RenderClear(_pRenderer);
+        SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
+        SDL_RenderClear(_renderer);
         
         _myPoint.x = input.getMouseX();
         _myPoint.y = input.getMouseY();
         
         // Get the width of text rect.
-        GetTextAndRect(_pRenderer, _myPoint.x, _myPoint.y, _myPoint.text, _pFont, &_pTexture, _pRect);
+        GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
         
         // Move around the text.
-        if(_myPoint.x > 640 - _pRect->w || _myPoint.x < 0) {
+        if(_myPoint.x > 640 - _rect->w || _myPoint.x < 0) {
             _acc *= -1;
         }
         
         _myPoint.x += _acc;
         
-        GetTextAndRect(_pRenderer, _myPoint.x, _myPoint.y, _myPoint.text, _pFont, &_pTexture, _pRect);
+        GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
         
         // Draw default screen render texture.
-        SDL_RenderCopy(_pRenderer, _pTexture, 0, _pRect);
+        SDL_RenderCopy(_renderer, _texture, 0, _rect);
         
         // Update screen
-        SDL_RenderPresent(_pRenderer);
+        SDL_RenderPresent(_renderer);
     }
 }
 
 void Renderer::Destroy()
 {
-    SDL_DestroyTexture(_pTexture);
-    SDL_DestroyRenderer(_pRenderer);
-    SDL_DestroyWindow(_pWindow);
+    SDL_DestroyTexture(_texture);
+    SDL_DestroyRenderer(_renderer);
+    SDL_DestroyWindow(_window);
     
-    TTF_CloseFont(_pFont);
+    TTF_CloseFont(_font);
     TTF_Quit();
     
     SDL_Quit();

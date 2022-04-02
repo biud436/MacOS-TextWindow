@@ -32,13 +32,13 @@ public:
     void requestDestroy();
 
 protected:
-    SDL_Window* _pWindow;
-    SDL_Renderer* _pRenderer;
-    SDL_Surface* _pSurface;
-    TTF_Font* _pFont;
+    SDL_Window* _window;
+    SDL_Renderer* _renderer;
+    SDL_Surface* _surface;
+    TTF_Font* _font;
 private:
-    SDL_Texture* _pTexture;
-    SDL_Rect* _pRect;
+    SDL_Texture* _texture;
+    SDL_Rect* _rect;
     MyPoint _myPoint;
     int _acc;
     bool _isRunning;
