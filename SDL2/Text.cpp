@@ -32,7 +32,7 @@ Text::~Text()
 }
 
 
-void Text::render(Renderer *renderer)
+void Text::render(SDL_Renderer *renderer)
 {
     
 }
