@@ -13,6 +13,10 @@
 		1439111127F83394008BE3BB /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439110F27F83394008BE3BB /* Vector2D.cpp */; };
 		1439111727F9550E008BE3BB /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439111527F9550E008BE3BB /* Text.cpp */; };
 		1439111A27F97300008BE3BB /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439111827F97300008BE3BB /* File.cpp */; };
+		1439111D27F99301008BE3BB /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439111B27F99301008BE3BB /* GameObject.cpp */; };
+		1439112027F99332008BE3BB /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439111E27F99332008BE3BB /* GameState.cpp */; };
+		1439112327F9935E008BE3BB /* GameStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439112127F9935E008BE3BB /* GameStateMachine.cpp */; };
+		1439112627F996B4008BE3BB /* UnCopyable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439112427F996B4008BE3BB /* UnCopyable.cpp */; };
 		14AF648526880BC40039D98B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AF648426880BC40039D98B /* main.cpp */; };
 		14B7DBA4268F596D0016FA47 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14B7DBA3268F596D0016FA47 /* assets */; };
 /* End PBXBuildFile section */
@@ -77,6 +81,14 @@
 		1439111627F9550E008BE3BB /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
 		1439111827F97300008BE3BB /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
 		1439111927F97300008BE3BB /* File.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = File.hpp; sourceTree = "<group>"; };
+		1439111B27F99301008BE3BB /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		1439111C27F99301008BE3BB /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
+		1439111E27F99332008BE3BB /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		1439111F27F99332008BE3BB /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		1439112127F9935E008BE3BB /* GameStateMachine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStateMachine.cpp; sourceTree = "<group>"; };
+		1439112227F9935E008BE3BB /* GameStateMachine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameStateMachine.hpp; sourceTree = "<group>"; };
+		1439112427F996B4008BE3BB /* UnCopyable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnCopyable.cpp; sourceTree = "<group>"; };
+		1439112527F996B4008BE3BB /* UnCopyable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnCopyable.hpp; sourceTree = "<group>"; };
 		14AF648126880BC40039D98B /* SDL2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL2; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AF648426880BC40039D98B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		14B7DBA3268F596D0016FA47 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -135,6 +147,14 @@
 				1439111627F9550E008BE3BB /* Text.hpp */,
 				1439111827F97300008BE3BB /* File.cpp */,
 				1439111927F97300008BE3BB /* File.hpp */,
+				1439111B27F99301008BE3BB /* GameObject.cpp */,
+				1439111C27F99301008BE3BB /* GameObject.hpp */,
+				1439111E27F99332008BE3BB /* GameState.cpp */,
+				1439111F27F99332008BE3BB /* GameState.hpp */,
+				1439112127F9935E008BE3BB /* GameStateMachine.cpp */,
+				1439112227F9935E008BE3BB /* GameStateMachine.hpp */,
+				1439112427F996B4008BE3BB /* UnCopyable.cpp */,
+				1439112527F996B4008BE3BB /* UnCopyable.hpp */,
 			);
 			path = SDL2;
 			sourceTree = "<group>";
@@ -233,12 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1439111D27F99301008BE3BB /* GameObject.cpp in Sources */,
 				1439111727F9550E008BE3BB /* Text.cpp in Sources */,
 				1439110827F7DE0E008BE3BB /* Renderer.cpp in Sources */,
 				14AF648526880BC40039D98B /* main.cpp in Sources */,
 				1439110B27F7EDB0008BE3BB /* Input.cpp in Sources */,
 				1439111127F83394008BE3BB /* Vector2D.cpp in Sources */,
+				1439112627F996B4008BE3BB /* UnCopyable.cpp in Sources */,
 				1439110527F7DA79008BE3BB /* App.cpp in Sources */,
+				1439112327F9935E008BE3BB /* GameStateMachine.cpp in Sources */,
+				1439112027F99332008BE3BB /* GameState.cpp in Sources */,
 				1439111A27F97300008BE3BB /* File.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
