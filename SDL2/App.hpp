@@ -24,6 +24,7 @@ public:
     std::string GetWorkingDirectory();
     std::string GetBaseDirectory();
     void EnumDirectories();
+    std::string GetPlatform();
 private:
     App();
     virtual ~App();

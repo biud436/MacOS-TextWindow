@@ -17,6 +17,7 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <iostream>
 #include "Renderer.hpp"
 
 App* App::s_pInstance = 0;
@@ -40,12 +41,17 @@ App::~App()
 
 void App::Start()
 {
-    
+    std::cout << "Current Platform : " << GetPlatform() << std::endl;
 }
 
 void App::Quit()
 {
     Renderer::GetInstance().requestDestroy();
+}
+
+std::string App::GetPlatform()
+{
+    return SDL_GetPlatform();
 }
 
 /**
