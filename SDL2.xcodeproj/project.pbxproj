@@ -89,7 +89,7 @@
 		1439112227F9935E008BE3BB /* GameStateMachine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameStateMachine.hpp; sourceTree = "<group>"; };
 		1439112427F996B4008BE3BB /* UnCopyable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnCopyable.cpp; sourceTree = "<group>"; };
 		1439112527F996B4008BE3BB /* UnCopyable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnCopyable.hpp; sourceTree = "<group>"; };
-		1439112727F9C537008BE3BB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1439112727F9C537008BE3BB /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 		14AF648126880BC40039D98B /* SDL2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL2; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AF648426880BC40039D98B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		14B7DBA3268F596D0016FA47 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				1439112227F9935E008BE3BB /* GameStateMachine.hpp */,
 				1439112427F996B4008BE3BB /* UnCopyable.cpp */,
 				1439112527F996B4008BE3BB /* UnCopyable.hpp */,
-				1439112727F9C537008BE3BB /* Constants.h */,
+				1439112727F9C537008BE3BB /* Constants.hpp */,
 			);
 			path = SDL2;
 			sourceTree = "<group>";

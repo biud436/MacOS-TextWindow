@@ -19,6 +19,7 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include "Renderer.hpp"
+#include "Constants.hpp"
 
 App* App::s_pInstance = 0;
 
@@ -41,7 +42,8 @@ App::~App()
 
 void App::Start()
 {
-    std::cout << "Current Platform : " << GetPlatform() << std::endl;
+    std::cout << "Platform (SDL) : " << GetPlatform() << std::endl;
+    std::cout << "Platform (Built-In) " << RS::PLATFORM::type << std::endl;
 }
 
 void App::Quit()
