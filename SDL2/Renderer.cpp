@@ -68,7 +68,7 @@ bool Renderer::Prepare()
     
     std::string fileAbsolutePath = "/Library/Fonts/NanumGothic.ttf";
     
-    assert(File::GetInstance().exists(fileAbsolutePath));
+    SDL_assert(File::GetInstance().exists(fileAbsolutePath));
     
     _font = TTF_OpenFont(&fileAbsolutePath[0], 22);
     
