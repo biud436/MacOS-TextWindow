@@ -82,14 +82,29 @@ void Input::onMouseButtonUp(SDL_Event& event)
     }
 }
 
+bool Input::isKeyDown(SDL_Keycode vKey) const
+{
+    return _keyCurrentStates[SDL_GetScancodeFromKey(vKey)];
+}
+
 bool Input::isKeyDown(SDL_Scancode vKey) const
 {
     return _keyCurrentStates[vKey] == KB_DOWN;
 }
 
+bool Input::isKeyUp(SDL_Keycode vKey) const
+{
+    return _keyCurrentStates[SDL_GetScancodeFromKey(vKey)] == KB_UP;
+}
+
 bool Input::isKeyUp(SDL_Scancode vKey) const
 {
     return _keyCurrentStates[vKey] == KB_UP;
+}
+
+bool Input::isKeyPress(SDL_Keycode vKey) const
+{
+    return _keyCurrentStates[SDL_GetScancodeFromKey(vKey)] == KB_DOWN;
 }
 
 bool Input::isKeyPress(SDL_Scancode vKey) const

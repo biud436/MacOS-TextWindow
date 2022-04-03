@@ -51,16 +51,19 @@ public:
     /**
     * 특정 키가 눌렸는 지 확인합니다.
     */
+    bool isKeyDown(SDL_Keycode vKey) const;
     bool isKeyDown(SDL_Scancode vKey) const;
 
     /**
     * 특정 키를 눌렀다가 뗐는 지 확인합니다.
     */
+    bool isKeyUp(SDL_Keycode vKey) const;
     bool isKeyUp(SDL_Scancode vKey) const;
 
     /**
     * 특정 키가 눌린 상태 인지 확인합니다.
     */
+    bool isKeyPress(SDL_Keycode vKey) const;
     bool isKeyPress(SDL_Scancode vKey) const;
 
     /**
