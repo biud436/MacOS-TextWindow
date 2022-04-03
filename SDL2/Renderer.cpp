@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <limits.h>
 #include "Input.hpp"
+#include "File.hpp"
 
 SDL_Color textColor = {255, 255, 255};
 
@@ -64,8 +65,12 @@ bool Renderer::Prepare()
     if (TTF_Init() == -1) {
         return false;
     }
-        
-    _font = TTF_OpenFont("/Library/Fonts/NanumGothic.ttf", 22);
+    
+    std::string fileAbsolutePath = "/Library/Fonts/NanumGothic.ttf";
+    
+    assert(File::GetInstance().exists(fileAbsolutePath));
+    
+    _font = TTF_OpenFont(&fileAbsolutePath[0], 22);
     
     _isRunning = true;
     
