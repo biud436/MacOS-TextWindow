@@ -27,7 +27,7 @@ public:
     void RenderLoop();
     void Destroy();
     
-    void GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect);
+    void GetTextAndRect(int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect);
     
     void requestDestroy();
 

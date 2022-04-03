@@ -69,7 +69,7 @@ bool Renderer::Prepare()
     
     _isRunning = true;
     
-    GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
+    GetTextAndRect(_myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
     
     return _isRunning;
 }
@@ -96,7 +96,7 @@ void Renderer::RenderLoop()
         _myPoint.y = input.getMouseY();
         
         // Get the width of text rect.
-        GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
+        GetTextAndRect(_myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
         
         // Move around the text.
         if(_myPoint.x > 640 - _rect->w || _myPoint.x < 0) {
@@ -105,10 +105,11 @@ void Renderer::RenderLoop()
         
         _myPoint.x += _acc;
         
-        GetTextAndRect(_renderer, _myPoint.x, _myPoint.y, _myPoint.text, _font, &_texture, _rect);
-        
         // Draw default screen render texture.
         SDL_RenderCopy(_renderer, _texture, 0, _rect);
+        
+        // 메모리 누수 이슈 해결
+        SDL_DestroyTexture(_texture);
         
         // Update screen
         SDL_RenderPresent(_renderer);
@@ -127,7 +128,7 @@ void Renderer::Destroy()
     SDL_Quit();
 }
 
-void Renderer::GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
+void Renderer::GetTextAndRect(int x, int y, const char* text, TTF_Font *font, SDL_Texture **texture, SDL_Rect* rect) {
     int textWidth;
     int textHeight;
     
@@ -135,7 +136,9 @@ void Renderer::GetTextAndRect(SDL_Renderer* renderer, int x, int y, const char* 
     SDL_Color textColor = {0, 0, 0, 0};
     
     surface = TTF_RenderUTF8_Blended(font, text, textColor);
-    *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    
+    // Note: 메모리 관리 주의
+    *texture = SDL_CreateTextureFromSurface(_renderer, surface);
     
     textWidth = surface->w;
     textHeight = surface->h;
