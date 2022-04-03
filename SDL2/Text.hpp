@@ -10,7 +10,7 @@
 
 #include <string>
 
-class Renderer;
+class SDL_Renderer;
 
 class Text
 {
@@ -20,7 +20,7 @@ public:
     Text(const char* content);
     virtual ~Text();
     
-    void render(Renderer* renderer);
+    void render(SDL_Renderer* renderer);
     
 protected:
     std::string _content;
