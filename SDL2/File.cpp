@@ -38,5 +38,7 @@ bool File::exists(std::string filePath)
         return false;
     }
     
+    SDL_RWclose(file);
+    
     return true;
 }
