@@ -8,12 +8,32 @@
 #ifndef types_h
 #define types_h
 
-typedef unsigned char BYTE;
+/**
+ *  https://docs.microsoft.com/en-US/windows/win32/winprog/windows-data-types
+ */
+typedef unsigned char BYTE, *PBYTE, *LPBYTE;
+typedef long LONG;
+typedef float FLOAT, *PFLOAT;
+typedef unsigned long DWORD, *PDWORD, *LPDWORD;
+typedef DWORD COLORREF, *LPCOLORREF;
+typedef int BOOL, *PBOOL, *LPBOOL;
+
 typedef struct tagRECT {
-    unsigned long left;
-    unsigned long top;
-    unsigned long right;
-    unsigned long bottom;
+    LONG left;
+    LONG top;
+    LONG right;
+    bottom;
 } RECT, *PRECT, *NPRECT, *LPRECT;
+
+typedef struct tagXFORM {
+  FLOAT eM11;
+  FLOAT eM12;
+  FLOAT eM21;
+  FLOAT eM22;
+  FLOAT eDx;
+  FLOAT eDy;
+} XFORM, *PXFORM, *LPXFORM;
+
+using TransformData = XORM;
 
 #endif /* types_h */
