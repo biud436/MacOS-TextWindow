@@ -34,6 +34,6 @@ typedef struct tagXFORM {
   FLOAT eDy;
 } XFORM, *PXFORM, *LPXFORM;
 
-using TransformData = XORM;
+using TransformData = XFORM;
 
 #endif /* types_h */
