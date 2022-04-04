@@ -17,6 +17,7 @@
 		1439112027F99332008BE3BB /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439111E27F99332008BE3BB /* GameState.cpp */; };
 		1439112327F9935E008BE3BB /* GameStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439112127F9935E008BE3BB /* GameStateMachine.cpp */; };
 		1439112627F996B4008BE3BB /* UnCopyable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439112427F996B4008BE3BB /* UnCopyable.cpp */; };
+		1439112B27FB26C9008BE3BB /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1439112927FB26C9008BE3BB /* Sprite.cpp */; };
 		14AF648526880BC40039D98B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AF648426880BC40039D98B /* main.cpp */; };
 		14B7DBA4268F596D0016FA47 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14B7DBA3268F596D0016FA47 /* assets */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,8 @@
 		1439112527F996B4008BE3BB /* UnCopyable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnCopyable.hpp; sourceTree = "<group>"; };
 		1439112727F9C537008BE3BB /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 		1439112827FB1E68008BE3BB /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		1439112927FB26C9008BE3BB /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		1439112A27FB26C9008BE3BB /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		14AF648126880BC40039D98B /* SDL2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL2; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AF648426880BC40039D98B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		14B7DBA3268F596D0016FA47 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				1439112527F996B4008BE3BB /* UnCopyable.hpp */,
 				1439112727F9C537008BE3BB /* Constants.hpp */,
 				1439112827FB1E68008BE3BB /* types.h */,
+				1439112927FB26C9008BE3BB /* Sprite.cpp */,
+				1439112A27FB26C9008BE3BB /* Sprite.hpp */,
 			);
 			path = SDL2;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			files = (
 				1439111D27F99301008BE3BB /* GameObject.cpp in Sources */,
 				1439111727F9550E008BE3BB /* Text.cpp in Sources */,
+				1439112B27FB26C9008BE3BB /* Sprite.cpp in Sources */,
 				1439110827F7DE0E008BE3BB /* Renderer.cpp in Sources */,
 				14AF648526880BC40039D98B /* main.cpp in Sources */,
 				1439110B27F7EDB0008BE3BB /* Input.cpp in Sources */,
