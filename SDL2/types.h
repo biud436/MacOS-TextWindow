@@ -8,7 +8,7 @@
 #ifndef types_h
 #define types_h
 
-typedef BYTE unsigned char;
+typedef unsigned char BYTE;
 typedef struct tagRECT {
     unsigned long left;
     unsigned long top;
