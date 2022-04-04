@@ -18,20 +18,22 @@ typedef unsigned long DWORD, *PDWORD, *LPDWORD;
 typedef DWORD COLORREF, *LPCOLORREF;
 typedef int BOOL, *PBOOL, *LPBOOL;
 
-typedef struct tagRECT {
+typedef struct tagRECT
+{
     LONG left;
     LONG top;
     LONG right;
-    bottom;
-} RECT, *PRECT, *NPRECT, *LPRECT;
+    LONG bottom;
+} RECT, *PRECT, *LPRECT;
+typedef const RECT *LPCRECT;
 
 typedef struct tagXFORM {
-  FLOAT eM11;
-  FLOAT eM12;
-  FLOAT eM21;
-  FLOAT eM22;
-  FLOAT eDx;
-  FLOAT eDy;
+    FLOAT eM11;
+    FLOAT eM12;
+    FLOAT eM21;
+    FLOAT eM22;
+    FLOAT eDx;
+    FLOAT eDy;
 } XFORM, *PXFORM, *LPXFORM;
 
 using TransformData = XFORM;
