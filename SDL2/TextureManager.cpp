@@ -64,9 +64,7 @@ bool TextureManager::valid(std::string id)
 
 bool TextureManager::Load(std::string fileName, std::string id, SDL_Renderer* pRenderer)
 {
-    int width = 0;
-    int height = 0;
-    
+
     TextureData *pTextureData = new TextureData();
     
     std::string fmt = fileName.substr(fileName.size() - 4, 4);
@@ -81,6 +79,10 @@ bool TextureManager::Load(std::string fileName, std::string id, SDL_Renderer* pR
     SDL_Texture* pTexture = SDL_CreateTextureFromSurface(pRenderer, pTempSurface);
     if(pTexture != 0)
     {
+        // 폭과 높이를 구합니다.
+        SDL_Point size;
+        SDL_QueryTexture(pTexture, 0, 0, &pTextureData->width, &pTextureData->height);
+        
         pTextureData->texture = pTexture;
         m_textureMap[id] = pTextureData;
         return true;
