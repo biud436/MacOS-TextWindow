@@ -80,15 +80,14 @@ public:
 
     void Draw(std::string id, int x, int y, int width, int height, SDL_Renderer* pRenderer);
 
-//    void DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer);
-//
-//    void DrawText(std::string id, int x, int y, int width, int height, RECT& rect, TransformData& transform, SDL_Renderer* pRenderer);
-
     bool valid(std::string id);
 
-//    void DrawPoint(int x, int y);
-//
-//    void SetBitmapColor(BYTE r, BYTE g, BYTE b, BYTE a);
+    //    void DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer);
+    //
+    //    void DrawText(std::string id, int x, int y, int width, int height, RECT& rect, TransformData& transform, SDL_Renderer* pRenderer);
+    //    void DrawPoint(int x, int y);
+    //
+    //    void SetBitmapColor(BYTE r, BYTE g, BYTE b, BYTE a);
 
 public:
 
