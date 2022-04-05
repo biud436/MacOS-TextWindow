@@ -36,4 +36,6 @@ typedef struct tagXFORM {
     FLOAT eDy;
 } XFORM, *PXFORM, *LPXFORM;
 
+#define RGB(r,g,b)  ((COLORREF)((BYTE)(r) | ((BYTE)(g) << 8) | ((BYTE)(b) << 16)))
+
 #endif /* types_h */
