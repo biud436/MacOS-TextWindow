@@ -80,7 +80,6 @@ bool TextureManager::Load(std::string fileName, std::string id, SDL_Renderer* pR
     if(pTexture != 0)
     {
         // 폭과 높이를 구합니다.
-        SDL_Point size;
         SDL_QueryTexture(pTexture, 0, 0, &pTextureData->width, &pTextureData->height);
         
         pTextureData->texture = pTexture;
