@@ -8,6 +8,9 @@
 #include "TextureManager.hpp"
 #include "App.hpp"
 #include <SDL_image.h>
+#include "Vector2D.hpp"
+#include <numeric>
+#include <vector>
 
 TextureData::TextureData()
 {
@@ -130,8 +133,11 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     destRect.w = width * transform.eM11;
     destRect.h = height * transform.eM22;
     
-    // 회전 행렬 지원이 되지 않음. x, y와 행렬을 가지고, 회전 값을 역으로 추산해야 하나? 아니면 angle을 넘겨받아야 하나?
-    const double angle = 0;
+    // 벡터의 내적을 이용하여 원점으로부터 타겟 각도가 이루는 각을 역으로 추산.
+    std::vector<LONG> origin {0, 0};
+    std::vector<LONG> target {rect.left, rect.top};
+    
+    const double angle = std::inner_product(origin.begin(), origin.end(), target.begin(), 0);
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     
     SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &destRect, angle, 0, flip);
