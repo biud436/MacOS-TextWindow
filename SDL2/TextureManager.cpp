@@ -105,12 +105,29 @@ void TextureManager::Draw(std::string id, int x, int y, int width, int height, S
     const double angle = 0;
     SDL_RendererFlip flip = SDL_FLIP_NONE;
         
-    SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &srcRect, angle, 0, flip);
+    SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &destRect, angle, 0, flip);
 }
 
 void TextureManager::DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer)
 {
-    TextureData *currentTexture = m_textureMap[id];
+    SDL_Rect srcRect;
+    SDL_Rect destRect;
     
+    srcRect.x = 0;
+    srcRect.y = 0;
+    srcRect.w = width;
+    srcRect.h = height;
     
+    rect.left = rect.left * transform.eM11 - rect.top * transform.eM12;
+    rect.top = rect.left * transform.eM21 + rect.top * transform.eM22;
+    
+    destRect.x = rect.left + transform.eDx;
+    destRect.y = rect.top + transform.eDy;
+    destRect.w = width;
+    destRect.h = height;
+    
+    const double angle = 0;
+    SDL_RendererFlip flip = SDL_FLIP_NONE;
+    
+    SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &destRect, angle, 0, flip);
 }
