@@ -82,8 +82,8 @@ public:
 
     bool valid(std::string id);
 
-    //    void DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer);
-    //
+    void DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer);
+    
     //    void DrawText(std::string id, int x, int y, int width, int height, RECT& rect, TransformData& transform, SDL_Renderer* pRenderer);
     //    void DrawPoint(int x, int y);
     //

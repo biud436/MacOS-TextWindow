@@ -107,3 +107,10 @@ void TextureManager::Draw(std::string id, int x, int y, int width, int height, S
         
     SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &srcRect, angle, 0, flip);
 }
+
+void TextureManager::DrawFrame(std::string id, int x, int y, int width, int height, RECT& rect, BYTE opacity, TransformData& transform, SDL_Renderer* pRenderer)
+{
+    TextureData *currentTexture = m_textureMap[id];
+    
+    
+}
