@@ -11,6 +11,7 @@
 #include "Vector2D.hpp"
 #include <numeric>
 #include <vector>
+#include <math.h>
 
 TextureData::TextureData()
 {
@@ -134,10 +135,15 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     destRect.h = height * transform.eM22;
     
     // 벡터의 내적을 이용하여 원점으로부터 타겟 각도가 이루는 각을 역으로 추산.
-    std::vector<LONG> origin {0, 0};
-    std::vector<LONG> target {rect.left, rect.top};
+    Vector2D v1(0, 0);
+    v1.normalize();
+    Vector2D v2(rect.left, rect.top);
+    v2.normalize();
     
-    const double angle = std::inner_product(origin.begin(), origin.end(), target.begin(), 0);
+    std::vector<LONG> origin {LONG(v1.getX()), LONG(v2.getY())};
+    std::vector<LONG> target {LONG(v2.getX()), LONG(v2.getY())};
+        
+    const double angle = (PI / 180.0) * acos(std::inner_product(origin.begin(), origin.end(), target.begin(), 0) * 1.0);
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     
     SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &destRect, angle, 0, flip);
