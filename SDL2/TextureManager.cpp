@@ -118,14 +118,19 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     srcRect.w = width;
     srcRect.h = height;
     
+    // 회전 행렬이 지원되지 않아 x, y를 다시 계산.
     rect.left = rect.left * transform.eM11 - rect.top * transform.eM12;
     rect.top = rect.left * transform.eM21 + rect.top * transform.eM22;
     
+    // 이동 행렬이 지원되지 않아 직접 덧셈.
     destRect.x = rect.left + transform.eDx;
     destRect.y = rect.top + transform.eDy;
-    destRect.w = width;
-    destRect.h = height;
     
+    // 스케일 행렬이 지원되지 않음.
+    destRect.w = width * transform.eM11;
+    destRect.h = height * transform.eM22;
+    
+    // 회전 행렬 지원이 되지 않음. x, y와 행렬을 가지고, 회전 값을 역으로 추산해야 하나? 아니면 angle을 넘겨받아야 하나?
     const double angle = 0;
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     
