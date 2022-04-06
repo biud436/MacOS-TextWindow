@@ -143,7 +143,7 @@ void TextureManager::DrawFrame(std::string id, int x, int y, int width, int heig
     std::vector<LONG> origin {LONG(v1.getX()), LONG(v2.getY())};
     std::vector<LONG> target {LONG(v2.getX()), LONG(v2.getY())};
         
-    const double angle = (PI / 180.0) * acos(std::inner_product(origin.begin(), origin.end(), target.begin(), 0) * 1.0);
+    const double angle = (PI * 180.0) / acos(std::inner_product(origin.begin(), origin.end(), target.begin(), 0) * 1.0);
     SDL_RendererFlip flip = SDL_FLIP_NONE;
     
     SDL_RenderCopyEx(pRenderer, m_textureMap[id]->texture, &srcRect, &destRect, angle, 0, flip);
