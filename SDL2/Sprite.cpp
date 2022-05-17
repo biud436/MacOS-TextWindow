@@ -297,6 +297,7 @@ void Sprite::setCurrentFrame(int currentFrame)
 void Sprite::setRect()
 {
     // 바꾸려면 상속 받아서 변경...
+    int cols = SPRITE_SHEET_COLS, rows = SPRITE_SHEET_ROWS;
     m_spriteData.rect.left = (m_nCurrentFrame % SPRITE_SHEET_COLS) * m_spriteData.width;
     m_spriteData.rect.right = m_spriteData.rect.left + m_spriteData.width;
     m_spriteData.rect.top = (m_nCurrentFrame / SPRITE_SHEET_ROWS) * m_spriteData.height;

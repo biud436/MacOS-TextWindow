@@ -31,7 +31,7 @@ File::~File()
 
 bool File::exists(std::string filePath)
 {
-    SDL_RWops* file = SDL_RWFromFile(&filePath[0], "r");
+    SDL_RWops* file = SDL_RWFromFile(&filePath[0], "r+");
     
     if(file == 0)
     {
